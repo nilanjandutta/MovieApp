@@ -1,1 +1,21 @@
-<p>movies works!</p>
+
+
+<div class="container-fluid">
+    <!-- <div *ngIf="errorflag" class="alert alert-danger">Invalid username or password</div> -->
+
+    <form (ngSubmit)="search()"#f="ngForm">
+        <div class="form-group">
+            <input type="text" class="form-control" name="title" placeholder="Movie Title" required ngModel #title="ngModel">
+        </div>
+        <button class="btn btn-primary btn-block" [disabled]="f.invalid" type="submit">Search</button>
+    </form>
+    
+</div>
+
+<div class="row">
+    <div *ngFor="let movie of movies" class="col-4">
+                <h5>{{movie.Title}}</h5>
+                    <img [src]="movie.Poster" class="img-view"><br>
+    </div>
+    
+</div>
